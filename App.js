@@ -1,9 +1,17 @@
 import React, { useState } from "react";
-import { Text, View } from "react-native";
+import { LogBox } from "react-native";
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
+import { enableScreens } from "react-native-screens";
 
 import MealsNavigator from "./navigation/MealsNavigator";
+
+LogBox.ignoreLogs([
+  "Your project is accessing the following APIs from a deprecated global rather than a module import: Constants (expo-constants).",
+  'The global "__expo" and "Expo" objects will be removed in SDK 41. Learn more about how to fix this warning: https://expo.fyi/deprecated-globals',
+]);
+
+enableScreens();
 
 const fetchFonts = () => {
   return Font.loadAsync({
